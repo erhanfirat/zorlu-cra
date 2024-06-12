@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* directives */
+
+input {
+  @apply border py-2 px-4 text-zinc-800 rounded-md;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn {
+  @apply px-8 py-2 border rounded-lg bg-cyan-400 text-slate-100 hover:bg-cyan-300 hover:text-white transition;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.btn.orange {
+  @apply bg-orange-600  hover:bg-orange-500;
+}
+
+.btn:disabled {
+  @apply bg-gray-400 text-gray-800;
+}
+
+.head {
+  @apply bg-gray-600 text-white p-8 flex justify-between;
+}
+
+header > nav {
+  @apply flex gap-4;
+}
+
+.page-content {
+  @apply p-8 grow;
+}
+
+.products-container {
+  @apply flex flex-wrap gap-4;
+}
+
+.product-card {
+  @apply p-4 border rounded-lg basis-80 grow shadow-lg flex flex-col gap-1;
+}
+
+.product-card > h3 {
+  @apply text-lg font-bold;
+}
+
+.product-card > p.price {
+  @apply text-lg font-bold text-orange-600;
+}
+
+#root {
+  @apply flex flex-col min-h-screen;
+}
+
+form > div {
+  @apply flex items-center mb-2;
+}
+form > div > label {
+  flex-basis: 40%;
+}
+form > div > input:not([type="checkbox"], [type="radio"]) {
+  flex-grow: 1;
+}
+
+p.form-error {
+  @apply text-red-700 text-sm pb-4;
+}
+
+@media screen and (max-width: 580px) {
+  .head {
+    @apply flex-col items-center;
+  }
+
+  header > nav {
+    @apply flex-col items-center gap-2;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dark {
+  background-color: rgb(59, 59, 59);
+  color: antiquewhite;
 }
